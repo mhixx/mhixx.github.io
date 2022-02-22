@@ -1,0 +1,30 @@
+
+#span1 {
+    font-size: 300px;
+}
+
+.span2 {
+    font-size: 150px;
+}
+
+#div1 {
+    width: 400px;
+    height: 400px;
+    background-color: red;
+}
+#div2 {
+    width: 500px;
+    height: 300px;
+    border-width: 20px;
+    border-color: #ffd4d4;
+    border-style: solid;
+    display: flex;
+    
+
+
+
+}
+#image1{
+    width: 100px;
+    height: 100px;
+}
