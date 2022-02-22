@@ -1,0 +1,42 @@
+#container{
+    width: 400px;
+    height: 438px;
+    background-color:transparent;
+    border-style:solid;
+    border-width: 5px;
+    border-color: rgb(99, 98, 98);
+    position: absolute;
+    left: 50%;
+    margin-top: 200px;
+    transform: translateX(-50%);
+
+    
+}
+.level{
+    width: 400px;
+    height: 85px;
+    background-color: rgb(54, 53, 53);
+    margin-top: 3px;
+    display: flex;
+    gap: 5px;
+
+}
+#level1{
+    margin-top: 0px;
+
+}
+.letter-box{
+    flex: 1;
+    height: 100%;
+    background-color: cadetblue;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.letter{
+    font-size: 50px;
+    text-align: center;
+    display: block;
+
+}
