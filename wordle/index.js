@@ -1,19 +1,49 @@
-function test() {
-    alert("hi")
+
+const abc = "abcdefghijklmnopqrstuvwxyz"
+
+let indexLetter = 0
+let indexLevel = 0
+
+function getLetter(letterIndex, levelIndex) {
+
+    const index = letterIndex + (5 * levelIndex)
+    return $(`.letter:eq(${index})`)
 
 }
-
 
 // documnt = 1 websitenya full
 $(document).keydown(function (event) {
     const key = event['originalEvent']['key']
+    if (key == "Enter") {
+        nextLevel()
+    }
+    if (!abc.includes(key)) return
+    getLetter(indexLetter, indexLevel).text(key)
 
-    $(".letter").text(key)
-    if(key == "Enter"){
-        alert("enter")
+    //toTheNextLetter()
+
+
+    if (indexLetter < 4) {
+        indexLetter++
+
 
     }
 
-    //alert("You pressed " + key);
 })
+function nextLevel() {
+    if (indexLetter == 4) {
+        indexLevel++
+        indexLetter = 0
+    }
+
+}
+function loadWords(){
+    
+
+
+}
+
+
+
+
 
