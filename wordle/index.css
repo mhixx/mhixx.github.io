@@ -37,11 +37,11 @@
 }
 
 .letter{
-    font-size: 50px;
+
     text-align: center;
     display: block;
     color: white;
-    font-size: larger;
+    font-size: x-large;
 
 }
 
@@ -71,6 +71,7 @@ body {
 }
 .keyboard-row2{
     margin-left: 10%;
+    margin-top: 4px;
 }
 .keyboard-row3{
     margin-left: 12px;
