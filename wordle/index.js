@@ -128,7 +128,7 @@ function updateColor(index){
             getLetterBox(index,indexLevel).css('background-color', 'green')
             return
         } 
-        getLetterBox(index,indexLevel).css('background-color', 'yellow')
+        getLetterBox(index,indexLevel).css('background-color', '#c9b458')
 
     } else {
         getLetterBox(index,indexLevel).css('background-color', 'grey')
