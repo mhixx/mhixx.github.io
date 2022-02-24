@@ -18,12 +18,8 @@ function getLetterBox(letterIndex, levelIndex) {
     return $(`.letter-box:eq(${index})`)
 }
 
-// documnt = 1 websitenya full
-$(document).keydown(function (event) {
-
+function addLetter(key){
     const userAnswer = getWord()
-
-    const key = event['originalEvent']['key']
     if (key == "Enter") {
         let valid = false
         words.some( w => {
@@ -31,7 +27,6 @@ $(document).keydown(function (event) {
                 valid = true
                 return
             }
-
         } )
 
         if(valid == false){ return }
@@ -63,6 +58,16 @@ $(document).keydown(function (event) {
 
     }
 
+
+}
+
+// documnt = 1 websitenya full
+$(document).keydown(function (event) {
+
+   
+    const key = event['originalEvent']['key']
+    addLetter(key)
+    
 })
 function nextLevel() {
 
@@ -145,6 +150,9 @@ $( window ).resize(function(e) {
 
 resizeGame()
 
+function buttonClick(key){
+    addLetter(key)
+}
 
 
 
