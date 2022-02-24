@@ -6,6 +6,11 @@ let indexLevel = 0
 let words
 let answer
 
+
+
+// let username = window.prompt("Enter your name","");
+
+
 function getLetter(letterIndex, levelIndex) {
 
     const index = letterIndex + (5 * levelIndex)

@@ -101,3 +101,28 @@ body {
 
 }
 
+.keyboard-2 {
+    margin-top: 100px;
+}
+
+.keyboard-2 .keyboard-2-row {
+    display: flex;
+    gap: 5px;
+}
+
+.keyboard-2-row:not(:last-child) {
+    margin-bottom: 5px;
+}
+
+.keyboard-2-row#keyboard-2-row-2 {
+    padding: 0 20px;
+}
+
+.keyboard-2 button {
+    background-color: #d3d6da;
+    border: 0;
+    flex: 1;
+    height: 58px;
+    border-radius: 4px;
+}
+
