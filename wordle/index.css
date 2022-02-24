@@ -1,5 +1,5 @@
 #container{
-    width: 400px;
+    width: 30%;
     height: 438px;
     background-color:black;
     border-style:solid;
@@ -13,7 +13,7 @@
     
 }
 .level{
-    width: 400px;
+    width: 100%;
     height: 85px;
     background-color: rgb(54, 53, 53);
     margin-top: 3px;
@@ -40,3 +40,4 @@
     display: block;
 
 }
+

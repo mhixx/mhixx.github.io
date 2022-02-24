@@ -132,6 +132,18 @@ function updateColor(index){
 
 }
 
+function resizeGame() {
+    const container = $("#container")
+    const letterBox = $(".level")
+    container.height(container.width())
+    letterBox.height(container.height() / 5.1)
+}
+
+$( window ).resize(function(e) {
+    resizeGame()
+})
+
+resizeGame()
 
 
 
