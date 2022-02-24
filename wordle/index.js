@@ -73,9 +73,14 @@ function nextLevel() {
 
 }
 function backspace(){
-    getLetter(indexLetter, indexLevel).text("")
+    if(getLetter(4, indexLevel).text() != ""){
+        getLetter(4, indexLevel).text("")
+        return
+    }
+
     if(indexLetter > 0){
         indexLetter--
+        getLetter(indexLetter, indexLevel).text("")
     }
     
     
