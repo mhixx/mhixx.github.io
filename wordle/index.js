@@ -10,6 +10,14 @@ let answer
 
 // let username = window.prompt("Enter your name","");
 
+function win(){
+    alert("you guessed the word! it's: " + answer)
+}
+
+function lose(){
+    alert("you lost, better luck next time. the answer is: " + answer)
+    
+}
 
 function getLetter(letterIndex, levelIndex) {
 
@@ -43,10 +51,14 @@ function addLetter(key){
         updateColor(3)
         updateColor(4)
         if (userAnswer == answer) {
-            alert('you guessed the word')
+            win()
         }
         else{
-           
+            if(indexLevel == 4){
+                lose()
+                
+            } 
+            
             nextLevel()
         }
 
@@ -68,10 +80,10 @@ function addLetter(key){
 
 // documnt = 1 websitenya full
 $(document).keydown(function (event) {
-
-   
+    
     const key = event['originalEvent']['key']
     addLetter(key)
+   
     
 })
 function nextLevel() {
