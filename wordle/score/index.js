@@ -1,23 +1,34 @@
 // Initialize Cloud Firestore through Firebase
-
-const firebaseApp = firebase.initializeApp({
-  apiKey: 'AIzaSyBttB_JeNd40QSMr4OZ3mFPLpSDTYySDas',
-  authDomain: 'mhixx-github-io.firebaseapp.com',
-  projectId: 'mhixx-github-io'
-});
-
-var db = firebase.firestore()
-
-// db.collection("wordle-score").add({
-//     name: "umi",
-//     score: 100
-// })
-
-// db.collection("wordle-score").get().then((querySnapshot) => {
-//     querySnapshot.forEach((doc) => {
-        
-//     })
-// });
+function getToday() {
+  const d = new Date()
+  return d.getDate() + '/' + d.getMonth() + '/' + d.getFullYear()
 
 
-console.log('ok')
+}
+
+
+async function getScoresFromFirebase() {
+  const scores = await getScores(getToday())
+  return scores
+
+}
+
+
+$(document).ready(async function () {
+
+  const scores = await getScoresFromFirebase()
+
+
+  for (let i = 0; i < scores.length; i++) {
+    $(`.board-name:eq(${i})`).text(scores[i].name + " = " +scores[i].score)
+
+    
+  }
+
+  
+
+
+})
+
+
+

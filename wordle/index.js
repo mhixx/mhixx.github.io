@@ -8,14 +8,53 @@ let answer
 
 
 
-// let username = window.prompt("Enter your name","");
+ let username = window.prompt("Enter your name","");
+
+
+function getToday(){
+    const d = new Date()
+    return d.getDate() + '/' + d.getMonth() + '/' + d.getFullYear()
+
+
+}
+
+
+function updateScore(score){
+ 
+    addScore(username, score, getToday())
+
+}
+
+
 
 function win(){
     alert("you guessed the word! it's: " + answer)
+    if(indexLevel == 0){
+        updateScore(100)
+
+    }
+    else if(indexLevel == 1){
+        updateScore(80)
+
+    }
+    else if(indexLevel == 2){
+        updateScore(60)
+
+    }
+    else if(indexLevel == 3){
+        updateScore(40)
+
+    }
+    else if(indexLevel == 4){
+        updateScore(20)
+
+    }
+    
 }
 
 function lose(){
     alert("you lost, better luck next time. the answer is: " + answer)
+    updateScore(0)
     
 }
 
@@ -52,6 +91,7 @@ function addLetter(key){
         updateColor(4)
         if (userAnswer == answer) {
             win()
+            
         }
         else{
             if(indexLevel == 4){
