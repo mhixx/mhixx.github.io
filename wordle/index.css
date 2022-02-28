@@ -105,13 +105,8 @@ body {
 
 .container-2{
     max-width: 500px;
-    /* width: 1200px;
-    max-width: 90%; */
     width: 100%;
-    position: relative;
-    left: 50%;
-    transform: translateX(-50%);
-    display: inline-block;
+    margin: 0 auto;
 }
 
 .keyboard-2 {
