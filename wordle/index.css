@@ -8,7 +8,7 @@
     /* border-color: rgb(99, 98, 98); */
     position: relative;
     left: 50%;
-    margin-top: 15vh;
+    margin-top: 10vh;
     transform: translateX(-50%);
 
     
@@ -105,12 +105,15 @@ body {
 
 .container-2{
     max-width: 500px;
-    width: 100%;
     margin: 0 auto;
 }
 
 .keyboard-2 {
     margin-top: 70px;
+}
+
+.keyboard-2-row {
+    /* width: 100px; */
 }
 
 .keyboard-2 .keyboard-2-row {
@@ -133,7 +136,8 @@ body {
     max-width: 80px;
     height: 45px;
     border-radius: 4px;
-    font-size: larger;
+    padding: 0px;
+    font-size: 16px;
     color: black;
 }
 
