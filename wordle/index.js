@@ -5,6 +5,9 @@ let indexLetter = 0
 let indexLevel = 0
 let words
 let answer
+const grey = '#787c7e'
+const yellow = '#c9b458'
+const green = '#6aaa64'
 
 
 
@@ -90,14 +93,14 @@ function updateKeyColor(index){
     
     if (answer.includes(getWord()[index])) {
         if (answer[index] == getWord()[index]) {
-            $(`#k2-button-${userAnswer[index]}`).css('background-color', 'green')
+            $(`#k2-button-${userAnswer[index]}`).css('background-color', green)
 
             return
         } 
-        $(`#k2-button-${userAnswer[index]}`).css('background-color', 'yellow')
+        $(`#k2-button-${userAnswer[index]}`).css('background-color', yellow)
 
     } else {
-        $(`#k2-button-${userAnswer[index]}`).css('background-color', 'grey')
+        $(`#k2-button-${userAnswer[index]}`).css('background-color', grey)
     }
 
 }
@@ -105,13 +108,13 @@ function updateKeyColor(index){
 function addLetter(key){
     const userAnswer = getWord()
     if (key == "Enter") {
+        
+        if(existInDictionary() == false){ return }
         updateKeyColor(0)
         updateKeyColor(1)
         updateKeyColor(2)
         updateKeyColor(3)
         updateKeyColor(4)
-        if(existInDictionary() == false){ return }
-
 
         updateColor(0)
         updateColor(1)
@@ -214,14 +217,14 @@ function updateColor(index){
 
     if (answer.includes(getWord()[index])) {
         if (answer[index] == getWord()[index]) {
-            getLetterBox(index,indexLevel).css('background-color', 'green')
+            getLetterBox(index,indexLevel).css('background-color', green)
 
             return
         } 
-        getLetterBox(index,indexLevel).css('background-color', '#c9b458')
+        getLetterBox(index,indexLevel).css('background-color', yellow)
 
     } else {
-        getLetterBox(index,indexLevel).css('background-color', 'grey')
+        getLetterBox(index,indexLevel).css('background-color', grey)
     }
 
 
