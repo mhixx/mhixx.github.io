@@ -70,20 +70,49 @@ function getLetterBox(letterIndex, levelIndex) {
     return $(`.letter-box:eq(${index})`)
 }
 
-function addLetter(key){
+function existInDictionary(){
     const userAnswer = getWord()
-    if (key == "Enter") {
-        let valid = false
+    let valid = false
         words.some( w => {
             if(w == userAnswer){
                 valid = true
+                // break
                 return
             }
         } )
 
-        if(valid == false){ return }
+    return valid
+}
 
-        
+function updateKeyColor(index){
+    const userAnswer = getWord()
+    
+    
+    if (answer.includes(getWord()[index])) {
+        if (answer[index] == getWord()[index]) {
+            $(`#k2-button-${userAnswer[index]}`).css('background-color', 'green')
+
+            return
+        } 
+        $(`#k2-button-${userAnswer[index]}`).css('background-color', 'yellow')
+
+    } else {
+        $(`#k2-button-${userAnswer[index]}`).css('background-color', 'grey')
+    }
+
+}
+
+function addLetter(key){
+    const userAnswer = getWord()
+    if (key == "Enter") {
+        updateKeyColor(0)
+        updateKeyColor(1)
+        updateKeyColor(2)
+        updateKeyColor(3)
+        updateKeyColor(4)
+        if(existInDictionary() == false){ return }
+
+
         updateColor(0)
         updateColor(1)
         updateColor(2)
@@ -106,7 +135,10 @@ function addLetter(key){
     else if(key == "Backspace"){
         backspace()
     }
+
+
     if (!abc.includes(key)) return
+
     getLetter(indexLetter, indexLevel).text(key)
 
     if (indexLetter < 4) {
@@ -183,6 +215,7 @@ function updateColor(index){
     if (answer.includes(getWord()[index])) {
         if (answer[index] == getWord()[index]) {
             getLetterBox(index,indexLevel).css('background-color', 'green')
+
             return
         } 
         getLetterBox(index,indexLevel).css('background-color', '#c9b458')

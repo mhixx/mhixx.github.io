@@ -102,9 +102,11 @@ body {
 }
 
 .container-2{
+    max-width: 500px;
     /* width: 1200px;
     max-width: 90%; */
-    min-width: 340px;
+    width: 100%;
+    min-width: 330px;
     position: relative;
     left: 50%;
     transform: translateX(-50%);
@@ -117,7 +119,7 @@ body {
 
 .keyboard-2 .keyboard-2-row {
     display: flex;
-    gap: 5px;
+    gap: 4px;
 }
 
 .keyboard-2-row:not(:last-child) {
@@ -132,8 +134,8 @@ body {
     background-color: #d3d6da;
     border: 0;
     flex: 1;
-    max-width: 50px;
-    height: 50px;
+    max-width: 80px;
+    height: 45px;
     border-radius: 4px;
 }
 
