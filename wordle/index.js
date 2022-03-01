@@ -9,12 +9,44 @@ const grey = '#787c7e'
 const yellow = '#c9b458'
 const green = '#6aaa64'
 
+const url = 'https://mhixx.github.io'
+// const url = 'http://localhost:5500'
+
+//copas
+function getParameterByName(name, url = window.location.href) {
+    name = name.replace(/[\[\]]/g, '\\$&');
+    var regex = new RegExp('[?&]' + name + '(=([^&#]*)|&|#|$)'),
+        results = regex.exec(url);
+    if (!results) return null;
+    if (!results[2]) return '';
+    return decodeURIComponent(results[2].replace(/\+/g, ' '));
+}
+
+let username = getParameterByName('username')
 
 
- let username = window.prompt("Enter your name","");
+
+if (!username) {
+    while(!username){
+        let input = window.prompt("Enter your name", "")
+        username = input
+
+    }
+    
+} 
 
 
-function getToday(){
+function playAgain() {
+    window.location.href = url + "/wordle/?username=" + username;
+}
+
+
+function toScore() {
+    window.location.href = url+  "/wordle/score/";
+
+
+}
+function getToday() {
     const d = new Date()
     return d.getDate() + '/' + d.getMonth() + '/' + d.getFullYear()
 
@@ -22,43 +54,48 @@ function getToday(){
 }
 
 
-function updateScore(score){
- 
-    addScore(username, score, getToday())
+function updateScore(score) {
+
+    addScore(username.toLowerCase(), score, getToday())
+
+
+}
+
+function setScoreBoxVisible() {
+    $('.scorebox').css("visibility", "visible")
 
 }
 
 
-
-function win(){
-    alert("you guessed the word! it's: " + answer)
-    if(indexLevel == 0){
+function win() {
+    if (indexLevel == 0) {
         updateScore(100)
 
     }
-    else if(indexLevel == 1){
+    else if (indexLevel == 1) {
         updateScore(80)
 
     }
-    else if(indexLevel == 2){
+    else if (indexLevel == 2) {
         updateScore(60)
 
     }
-    else if(indexLevel == 3){
+    else if (indexLevel == 3) {
         updateScore(40)
 
     }
-    else if(indexLevel == 4){
+    else if (indexLevel == 4) {
         updateScore(20)
 
     }
-    
+    setScoreBoxVisible()
+
 }
 
-function lose(){
+function lose() {
     alert("you lost, better luck next time. the answer is: " + answer)
     updateScore(0)
-    
+
 }
 
 function getLetter(letterIndex, levelIndex) {
@@ -73,30 +110,30 @@ function getLetterBox(letterIndex, levelIndex) {
     return $(`.letter-box:eq(${index})`)
 }
 
-function existInDictionary(){
+function existInDictionary() {
     const userAnswer = getWord()
     let valid = false
-        words.some( w => {
-            if(w == userAnswer){
-                valid = true
-                // break
-                return
-            }
-        } )
+    words.some(w => {
+        if (w == userAnswer) {
+            valid = true
+            // break
+            return
+        }
+    })
 
     return valid
 }
 
-function updateKeyColor(index){
+function updateKeyColor(index) {
     const userAnswer = getWord()
-    
-    
+
+
     if (answer.includes(getWord()[index])) {
         if (answer[index] == getWord()[index]) {
             $(`#k2-button-${userAnswer[index]}`).css('background-color', green)
 
             return
-        } 
+        }
         $(`#k2-button-${userAnswer[index]}`).css('background-color', yellow)
 
     } else {
@@ -105,11 +142,11 @@ function updateKeyColor(index){
 
 }
 
-function addLetter(key){
+function addLetter(key) {
     const userAnswer = getWord()
     if (key == "Enter") {
-        
-        if(existInDictionary() == false){ return }
+
+        if (existInDictionary() == false) { return }
         updateKeyColor(0)
         updateKeyColor(1)
         updateKeyColor(2)
@@ -123,19 +160,19 @@ function addLetter(key){
         updateColor(4)
         if (userAnswer == answer) {
             win()
-            
+
         }
-        else{
-            if(indexLevel == 4){
+        else {
+            if (indexLevel == 4) {
                 lose()
-                
-            } 
-            
+
+            }
+
             nextLevel()
         }
 
     }
-    else if(key == "Backspace"){
+    else if (key == "Backspace") {
         backspace()
     }
 
@@ -155,11 +192,11 @@ function addLetter(key){
 
 // documnt = 1 websitenya full
 $(document).keydown(function (event) {
-    
+
     const key = event['originalEvent']['key']
     addLetter(key)
-   
-    
+
+
 })
 function nextLevel() {
 
@@ -169,18 +206,18 @@ function nextLevel() {
     }
 
 }
-function backspace(){
-    if(getLetter(4, indexLevel).text() != ""){
+function backspace() {
+    if (getLetter(4, indexLevel).text() != "") {
         getLetter(4, indexLevel).text("")
         return
     }
 
-    if(indexLetter > 0){
+    if (indexLetter > 0) {
         indexLetter--
         getLetter(indexLetter, indexLevel).text("")
     }
-    
-    
+
+
 }
 
 async function loadWords() {
@@ -205,7 +242,7 @@ $(document).ready(async function () {
 })
 
 function getWord() {
-    return getLetter(0,indexLevel).text() + getLetter(1, indexLevel).text() + getLetter(2, indexLevel).text() + getLetter(3, indexLevel).text() + getLetter(4, indexLevel).text()
+    return getLetter(0, indexLevel).text() + getLetter(1, indexLevel).text() + getLetter(2, indexLevel).text() + getLetter(3, indexLevel).text() + getLetter(4, indexLevel).text()
 
 }
 
@@ -213,18 +250,18 @@ function test() {
     getLetterBox(2, 1).css('background-color', 'yellow')
 }
 
-function updateColor(index){
+function updateColor(index) {
 
     if (answer.includes(getWord()[index])) {
         if (answer[index] == getWord()[index]) {
-            getLetterBox(index,indexLevel).css('background-color', green)
+            getLetterBox(index, indexLevel).css('background-color', green)
 
             return
-        } 
-        getLetterBox(index,indexLevel).css('background-color', yellow)
+        }
+        getLetterBox(index, indexLevel).css('background-color', yellow)
 
     } else {
-        getLetterBox(index,indexLevel).css('background-color', grey)
+        getLetterBox(index, indexLevel).css('background-color', grey)
     }
 
 
@@ -237,13 +274,13 @@ function resizeGame() {
     letterBox.height(container.height() / 5.1)
 }
 
-$( window ).resize(function(e) {
+$(window).resize(function (e) {
     resizeGame()
 })
 
 resizeGame()
 
-function buttonClick(key){
+function buttonClick(key) {
     addLetter(key)
 }
 

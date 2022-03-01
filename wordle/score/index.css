@@ -41,3 +41,19 @@ span{
 
 }
 
+#play-game-button{
+    padding: 10px 40px;
+    background-color: transparent;
+    color: white;
+    border: 2px solid white;
+    font-size: 30px;
+    font-family: sans-serif;
+    font-weight: 600;
+    position: absolute;
+    left: 50%;
+    top: 90%;
+    transform: translateX(-50%);
+    
+}
+
+
