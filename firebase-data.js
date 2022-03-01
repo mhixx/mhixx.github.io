@@ -13,9 +13,32 @@ function addScore(name, score, date) {
         score: score,
         date: date
     })
+}
 
+async function addWordToAdd(word) {
+    const querySnapshot = await db.collection("word-to-add").where("word", "==", word).get()
+    if (querySnapshot.empty) {
+        db.collection("word-to-add").add({
+            word: word
+        })
+        console.log('word added')
+    }  else {
+        console.log('cant add word');
+    }
 
 }
+
+async function getWordToAddSeperateByDot() {
+    let words = ''
+    const querySnapshot = await db.collection("word-to-add").get()
+    querySnapshot.forEach((doc) => {
+        words+=doc.data().word+'.'
+    })
+
+    return words
+}
+
+
 async function getScores(date) {
     console.log(`getScores(${date})`);
     let datas = []
@@ -25,5 +48,6 @@ async function getScores(date) {
     })
 
     return datas
-
 }
+
+

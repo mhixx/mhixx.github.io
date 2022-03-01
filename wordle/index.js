@@ -9,6 +9,19 @@ const grey = '#787c7e'
 const yellow = '#c9b458'
 const green = '#6aaa64'
 
+
+//aa
+let enterPressed = 0
+function spamEnterOnWrongWord() {
+    enterPressed++
+    if (enterPressed==5) {
+        addWordToAdd(getWord()).then(_=> {alert('will be added laterr')})
+        enterPressed = 0
+    }
+}
+
+//--aa--
+
 const url = 'https://mhixx.github.io'
 // const url = 'http://localhost:5500'
 
@@ -146,7 +159,12 @@ function addLetter(key) {
     const userAnswer = getWord()
     if (key == "Enter") {
 
-        if (existInDictionary() == false) { return }
+        if (existInDictionary() == false) {
+            // aa
+            spamEnterOnWrongWord()    
+            // --aa--
+            return 
+        }
         updateKeyColor(0)
         updateKeyColor(1)
         updateKeyColor(2)
