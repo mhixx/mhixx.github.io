@@ -1,30 +1,60 @@
+body{
+    background-color : #041C32;
+    margin: 0;
 
-#span1 {
-    font-size: 300px;
 }
 
-.span2 {
-    font-size: 150px;
-}
-
-#div1 {
-    width: 400px;
-    height: 400px;
-    background-color: red;
-}
-#div2 {
-    width: 500px;
-    height: 300px;
-    border-width: 20px;
-    border-color: #ffd4d4;
-    border-style: solid;
+.top-bar{
+    background-color: #064663;
+    width: 100%;
+    height: 100px;
     display: flex;
+    justify-content: space-between;
+
+}
+
+#game-anchor{
+    color: white;
+    text-decoration: none;
+    font-size: 40px ;
+    margin-top: 25px;
+    margin-left: 10px;
+    display: inline-block;
     
 
+}
+.middle-container{
+    width: 400px;
+    left: 50%;
+    transform: translateX(-50%);
+    position: relative;
+
+}
+
+#mhix-span{
+    color: white;
+    font-size: 60px;
+    margin-top: 200px;
+    display: block;
+
+}
+
+#mhix-introduction-span{
+    color: white;
+    font-size: 20px;
+    margin-top: 300px;
+    display: block;
 
 
 }
-#image1{
-    width: 100px;
-    height: 100px;
+#insta-icon{
+    width: 60px;
+    height: 60px;
+    
+
+}
+#youtube-icon{
+    width: 80px;
+    height: 60px;
+
 }
