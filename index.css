@@ -92,11 +92,13 @@ body{
     background-color: white;
     height: 400px;
     width: 100%;
-    display: block;
+    display: flex;
     margin-top: 125px;
     left: 50%;
     transform: translateX(-50%);
     position: relative;
+    flex-direction: column;
+    align-items: center;
 
 
 }
@@ -104,20 +106,13 @@ body{
 #guest-icon{
     height: 60px;
     width: 60px;
-    left: 40%;
-    transform: translateX(-50%);
-    position: relative;
-    margin-top: 20px;
-
 }
 
 #comment-input{
     height: 50px;
     width: 400px;
     font-size: 20px;
-    margin-left: 750px;
-    margin-top: 25px;
-    position: absolute;
+    padding-left: 10px;
 
 
 }
@@ -126,10 +121,45 @@ body{
     height: 50px;
     width: 150px;
     background-color: #dbaf73;
-    position: absolute;
     font-size: 20px;   
     color: white;
-    margin-top: 25px;
-    margin-left: 1170px;
+
+
+}
+
+#comment-section{
+    font-size: 30px;
+    display: flex;
+    justify-content: center;
+    margin-right: 70px;
+
+
+}
+
+.comment-side-input{
+    margin-top: 10px;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+
+}
+
+.comment-view{
+    background-color:transparent;
+    border: 2px solid #b1bfcb;
+    width: 1000px;
+    height: 100vh;
+    display: flex;
+    
+    
+
+
+}
+
+#comment-content{
+    font-size: 30px;
+    margin-left: 30px;
+    margin-top: 30px;
+
 
 }

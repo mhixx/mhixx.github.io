@@ -50,4 +50,23 @@ async function getScores(date) {
     return datas
 }
 
+async function getComments(){
+    let datas = []
+    const querySnapshot = await db.collection("comments").get()
+    querySnapshot.forEach((doc) => {
+        datas.push(doc.data())
+    })
+    return datas
+}
+
+async function addComment(username, content, time){
+    db.collection("comments").add({
+        username: username,
+        content: content,
+        time: time
+    })
+
+
+
+}
 
