@@ -60,7 +60,7 @@ async function getComments(){
 }
 
 async function addComment(username, content, time){
-    db.collection("comments").add({
+    await db.collection("comments").add({
         username: username,
         content: content,
         time: time

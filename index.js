@@ -1,4 +1,4 @@
-function buttonSubmitClick(){
+async function buttonSubmitClick(){
 
     const date = new Date()
 
@@ -8,9 +8,8 @@ function buttonSubmitClick(){
         day: "2-digit",
       })
 
-    addComment("admin", $('#comment-input').val() , result)
-
-
+    await addComment("unknown", $('#comment-input').val() , result)
+     window.location.href = window.location.href
 }
 
 async function loadComments(){
@@ -19,9 +18,17 @@ async function loadComments(){
     for (let i = 0; i < comments.length; i++) {
         console.log(comments[i]['content'])
         let content = comments[i]['content']
-        let commentSpan = `<span id="comment-content"> ${content} </span>`
+        let username = comments[i]['username']
+        let time = comments[i]['time']
+
+        let commentContent = `<span id="comment-content"> ${content}</span>`
+        
+        let commentTimeSpan = `<span id="comment-time"> ${time} </span>`
+
+        let commentUser = `<span id="comment-user"> ${username} </span>`
+        
         let currentHtml = $('.comment-view').html()
-        $('.comment-view').html( currentHtml + commentSpan)
+        $('.comment-view').html( currentHtml + commentUser +  commentContent + commentTimeSpan )
         
     }
 
@@ -30,6 +37,8 @@ async function loadComments(){
     
     
 }
+
+
 
 $(document).ready(_=>{
 

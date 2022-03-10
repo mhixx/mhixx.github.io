@@ -2,7 +2,8 @@ body{
     background-color : #041C32;
     margin: 0;
     background-image: url('./home-background.jpg');
-    background-size: cover;
+    background-size: contain;
+    /* min-width: fit-content; */
 }
 
 .top-bar{
@@ -26,18 +27,16 @@ body{
 
 }
 .middle-container{
-    width: 400px;
-    left: 50%;
-    transform: translateX(-50%);
-    position: relative;
-
+    display: flex;
+    align-items: center;
+    flex-direction: column;
 }
 
 #mhix-span{
-    color: white;
+    color: cornflowerblue;
     font-size: 60px;
-    margin-top: 200px;
     display: block;
+    
 
 }
 
@@ -46,6 +45,7 @@ body{
     font-size: 20px;
     margin-top: 100px;
     display: block;
+    width: 500px;
 
 
 }
@@ -62,6 +62,7 @@ body{
 }
 #social-media{
     margin-top: 15px;
+    display: flex;
 
 }
 
@@ -90,10 +91,9 @@ body{
 
 .comment-side{
     background-color: white;
-    height: 400px;
     width: 100%;
     display: flex;
-    margin-top: 125px;
+    margin-top: 360px;
     left: 50%;
     transform: translateX(-50%);
     position: relative;
@@ -132,12 +132,13 @@ body{
     display: flex;
     justify-content: center;
     margin-right: 70px;
+    margin-top: 60px;
 
 
 }
 
 .comment-side-input{
-    margin-top: 10px;
+    margin-top: 60px;
     display: flex;
     justify-content: center;
     gap: 20px;
@@ -148,8 +149,10 @@ body{
     background-color:transparent;
     border: 2px solid #b1bfcb;
     width: 1000px;
-    height: 100vh;
     display: flex;
+    flex-direction: column;
+    margin-bottom: 60px;
+    margin-top: 60px;
     
     
 
@@ -157,9 +160,99 @@ body{
 }
 
 #comment-content{
-    font-size: 30px;
+    font-size: 15px;
     margin-left: 30px;
-    margin-top: 30px;
+    margin-top: 10px;
+    
 
+
+}
+
+#comment-time{
+    font-size: 15px;   
+    text-align: right;
+    margin-bottom: 100px;
+
+
+}
+
+#comment-user{
+    margin-left: 20px;
+    font-size: 25px;
+    color: rgb(124, 191, 236);
+
+
+
+}
+
+@media only screen and (max-width: 768px)   {
+        #mhix-span{
+            color: cornflowerblue;
+            font-size: 40px;
+            margin-top: 200px;   
+
+        }
+        #mhix-introduction-span{
+            font-size: 15px;
+            margin-left: 20px;
+            width: 300px;
+            margin-top: 20px;
+
+        }
+        #game-anchor{
+            font-size: 20px;
+
+        }
+        #discord-server{
+            font-size: 22px;
+        }
+        #insta-icon{
+            width: 37px;
+            height: 37px;
+        }
+        #youtube-icon{
+            width: 55px;
+            height: 40px;
+        }
+        #community{
+            margin-top: 24px;
+        }
+        #comment-input{
+            height: 44px;
+            width: 199px;
+
+        }
+        #submit-button{
+            
+            margin-right: 10px;
+            height: 48px;
+            width: 95px;
+        }
+        #social-media{
+            margin-top: 30px;
+        }
+        #community{
+            padding-left: 40px;
+
+        }
+        #guest-icon{
+            margin-left: 20px;
+        }
+        #comment-section{
+            margin: 0;
+        }
+        .comment-side-input{
+            gap: 10px;
+        }
+        .comment-view{
+            width: 100%;
+        }
+        .comment-side{
+        
+            margin-top: 200px;
+            
+        
+        
+        }
 
 }
