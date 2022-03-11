@@ -95,7 +95,7 @@ body{
 
 
 .comment-side{
-    background-color: white;
+    background-color: #0646632c;
     width: 100%;
     display: flex;
     margin-top: 360px;
@@ -159,6 +159,7 @@ body{
     justify-content: center;
     margin-right: 70px;
     margin-top: 60px;
+    color: white;
     
 
 }
@@ -183,7 +184,7 @@ body{
 
 .comment-view{
     background-color:transparent;
-    border: 2px solid #b1bfcb;
+    /* border: 2px solid #b1bfcb; */
     width: 1000px;
     display: flex;
     flex-direction: column;
@@ -208,6 +209,7 @@ body{
     font-size: 15px;   
     text-align: right;
     margin-bottom: 100px;
+    color: rgb(124, 191, 236);
 
 
 }
@@ -219,6 +221,10 @@ body{
 
 
 
+}
+#comment-content{
+    color: white;
+    
 }
 
 @media only screen and (max-width: 768px)   {
