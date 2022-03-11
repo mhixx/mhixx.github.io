@@ -2,6 +2,11 @@ async function buttonSubmitClick(){
 
     const date = new Date()
 
+
+    if($('#comment-input').val() === ""){
+        return
+
+    }
     const result = date.toLocaleTimeString("sv-SE", { // you can use undefined as first argument
         year: "numeric",
         month: "2-digit",
@@ -15,6 +20,7 @@ async function buttonSubmitClick(){
 async function loadComments(){
     const comments = await getComments()
     
+
     for (let i = 0; i < comments.length; i++) {
         console.log(comments[i]['content'])
         let content = comments[i]['content']

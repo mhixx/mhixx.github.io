@@ -1,3 +1,7 @@
+
+* {
+    box-sizing: border-box;
+}
 body{
     background-color : #041C32;
     margin: 0;
@@ -105,27 +109,48 @@ body{
 
 #guest-icon{
     height: 60px;
-    width: 60px;
+
 }
+
 
 #comment-input{
     height: 50px;
-    width: 400px;
+    flex: 1;
     font-size: 20px;
     padding-left: 10px;
-
+    border: solid black 1px;
 
 }
 
-#submit-button{
+
+
+/* button dimension */
+
+.button--small{
+    height: 0
+}
+
+.button--medium{
     height: 50px;
-    width: 150px;
-    background-color: #dbaf73;
-    font-size: 20px;   
-    color: white;
-
+    font-size: 20px;  
+}
+.button--big{
+    height: 0;
 
 }
+
+/* -- */
+
+
+/* button theme */
+.button--orange{
+    background-color: #dbaf73;
+    color:white;
+
+}
+
+/* -- */
+
 
 #comment-section{
     font-size: 30px;
@@ -133,7 +158,7 @@ body{
     justify-content: center;
     margin-right: 70px;
     margin-top: 60px;
-
+    
 
 }
 
@@ -142,7 +167,17 @@ body{
     display: flex;
     justify-content: center;
     gap: 20px;
+    width: 100%;
+    padding: 0 4px;
+    max-width: 700px;
+    
+}
 
+
+.test-flex-children {
+    flex: 1;
+    height: 500px;
+    background-color: green;
 }
 
 .comment-view{
@@ -219,14 +254,12 @@ body{
         }
         #comment-input{
             height: 44px;
-            width: 199px;
 
         }
-        #submit-button{
-            
-            margin-right: 10px;
-            height: 48px;
-            width: 95px;
+        .button--medium{
+            height: 50px;
+            flex: 1;
+            font-size: 15px;  
         }
         #social-media{
             margin-top: 30px;
@@ -236,13 +269,19 @@ body{
 
         }
         #guest-icon{
-            margin-left: 20px;
+
+
+        }
+
+        #comment-input{
+            font-size: 16px;
+
         }
         #comment-section{
             margin: 0;
         }
         .comment-side-input{
-            gap: 10px;
+            gap: 6px;
         }
         .comment-view{
             width: 100%;
