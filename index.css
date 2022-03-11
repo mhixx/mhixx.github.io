@@ -11,7 +11,8 @@ body{
 }
 
 .top-bar{
-    background-color: #064663;
+    background-color: #0646632c;
+    
     width: 100%;
     height: 100px;
     display: flex;
