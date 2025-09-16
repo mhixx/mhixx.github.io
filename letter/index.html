@@ -60,8 +60,6 @@
           transform: translate(-50%, -50%) rotate(-45deg) scale(1);
         }
       }
-
-      /* Notebook container */
       .notebook {
         position: absolute;
         top: 50%;
@@ -69,7 +67,7 @@
         transform: translate(-50%, -50%) scale(0.8);
         width: 300px;
         max-width: 90%;
-        min-height: 220px;
+        min-height: 500px;
         background-color: #ffffff;
         border-radius: 12px;
         padding: 20px;
@@ -77,13 +75,42 @@
         opacity: 0;
         display: none;
         transition: opacity 0.8s ease, transform 0.8s ease;
-        z-index: 2;
+        overflow: hidden; /* hide scrollbars */
+        z-index: 999;
       }
 
       .notebook.show {
         display: block;
         opacity: 1;
         transform: translate(-50%, -50%) scale(1);
+      }
+      .pages {
+        display: flex;
+        flex-direction: row;
+        width: 100%;
+        min-height: 500px;
+
+        overflow-x: auto; /* horizontal scrolling */
+        overflow-y: hidden; /* prevent vertical scroll for the container */
+        scroll-snap-type: x mandatory;
+        -webkit-overflow-scrolling: touch;
+      }
+
+      .page {
+        flex: 0 0 100%;
+        scroll-snap-align: start;
+        padding-right: 10px;
+
+        height: 100%;
+        overflow-y: auto; /* allow vertical scroll per page */
+      }
+
+      .pages::-webkit-scrollbar {
+        display: none;
+      }
+      .pages {
+        -ms-overflow-style: none; /* IE and Edge */
+        scrollbar-width: none; /* Firefox */
       }
 
       /* Falling hearts */
@@ -178,17 +205,70 @@
 
     <!-- Notebook container -->
     <div class="notebook" id="notebook">
-      <p style="font-weight: 700">Hey Beautiful, Happy 19th Birthday 💌</p>
-      <p>
-        I'm so grateful to be part of your special day. I hope this birthday
-        fills your life with endless blessings, happiness, and love.
-      </p>
-      <p>
-        I’m so proud of you — for everything you’ve held onto, the battles
-        you’ve faced, and the way you still manage to smile through it all. I
-        love you so much. – Umar (your future husband)
-      </p>
-
+      <div class="pages">
+        <div class="page">
+          <img src="/assets/4.jpg" style="width: 100%; height: 180px" />
+          <p style="font-weight: 700">Hey Beautiful, Happy 19th Birthday 💌</p>
+          <p>
+            I'm so grateful to be part of your special day. I hope this birthday
+            fills your life with endless blessings, happiness, and love.
+          </p>
+          <p>
+            I’m so proud of you — for everything you’ve held onto, the battles
+            you’ve faced, and the way you still manage to smile through it all.
+            I love you so much. – Umar (your future husband)
+          </p>
+          <p style="font-weight: 700">Swipe Right ></p>
+        </div>
+        <div class="page">
+          <img
+            src="/assets/first-chat.jpg"
+            style="width: 100%; height: 180px"
+          />
+          <p style="font-weight: bold">Our First Interaction</p>
+          <p>
+            Never thought this cheesy move would end up being the best decision
+            I ever made. I played it cool, stood my ground, but if you only knew
+            how much I was sweating, WKKWKW. But hey, you gotta admit—I really
+            did leave you impressed, huh?
+          </p>
+        </div>
+        <div class="page">
+          <img
+            src="/assets/first-meet.jpeg"
+            style="width: 100%; height: 340px"
+          />
+          <p>Our First Meet -</p>
+          <p>
+            You were so pretty, I couldn’t take my eyes off you… (walaupun kamu
+            kayak patung 😆), but I really loved your energy. I knew how loving
+            you were the moment my eyes fell on you.
+          </p>
+        </div>
+        <div style="" class="page">
+          <img
+            src="/assets/booth.jpeg"
+            style="width: 100%; height: 300px; object-fit: contain"
+          />
+          <p style="font-weight: bold">You're finally mine -</p>
+          <p>
+            I knew I couldn't waste the opportunity of being next to an angel.
+            What a fool I'd have been not to ask you to be my girlfriend, right?
+            So I took a breath, gathered my courage — and asked you.
+          </p>
+        </div>
+        <div style="" class="page">
+          <img
+            src="/assets/5.jpg"
+            style="width: 100%; height: 300px; object-fit: contain"
+          />
+          <p style="font-weight: bold">My Message for you.</p>
+          <p>
+            Thanks for being the sweetest girlfriend. You’re more than enough
+            and you’ve done so much — kurangin keras kepalanya aja ya?, hehe.
+          </p>
+        </div>
+      </div>
       <div class="music-ui" id="musicUI" style="display: none">
         <span>🎵 Wave To Heart - Bad </span>
         <div class="music-bars">
